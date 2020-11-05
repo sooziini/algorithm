@@ -1,8 +1,6 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-
-#define SWAP(x, y, t) ((t)=(x), (x)=(y), (y)=(t))
+#define SWAP(x, y, t) (t=x, x=y, y=t)
 
 void bubble_sort(int arr[], int n) {
 	int tmp;
@@ -16,16 +14,17 @@ void bubble_sort(int arr[], int n) {
 int main() {
 	int n, sum = 0;
 	scanf("%d", &n);
-	int* a = malloc(sizeof(int) * n);
+	int* list = (int*)malloc(sizeof(int) * n);
 	
 	for (int i = 0; i < n; i++)
-		scanf("%d", &a[i]);
+		scanf("%d", &list[i]);
 
-	bubble_sort(a, n);		// ¿À¸§Â÷¼øÀ¸·Î Á¤·Ä
+	bubble_sort(list, n);		// ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬
 	
 	for (int i = 0; i < n; i++)
 		for (int j = 0; j <= i; j++)
-			sum += a[j];
+			sum += list[j];
 	
 	printf("%d", sum);
+	free(list);
 }
