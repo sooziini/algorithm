@@ -3,9 +3,9 @@ data = list(map(int, input().split()))
 ret = 0
 chk = 0
 
-data.sort()
-max_num = data[n - 1]       # data에서 가장 큰 수
-max_num_2 = data[n - 2]     # data에서 두번째로 큰 수
+data.sort(reverse=True)
+max_num = data[0]       # data에서 가장 큰 수
+max_num_2 = data[1]     # data에서 두번째로 큰 수
 
 for i in range(m):
     if (chk < k):
