@@ -38,6 +38,5 @@ def binary_search(target, start, end):
         if (target < t[1]):
             return t[0]
     
-data.sort()
-ret = binary_search(m, 0, data[n-1])
+ret = binary_search(m, 0, max(data))
 print(ret)
