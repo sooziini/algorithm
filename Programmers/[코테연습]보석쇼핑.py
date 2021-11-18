@@ -6,23 +6,19 @@ from collections import defaultdict
 def solution(gems):
     answer = []
     a_x, a_y = 0, 0
-    chk_list = []
     chk_dic = defaultdict(int)      # 보석 각각의 개수
     gems_set_len = len(set(gems))   # 보석 종류 수
     shortest = len(gems)+1          # 최단 길이
 
     while a_y<len(gems):
-        chk_list.append(gems[a_y])
         chk_dic[gems[a_y]]+=1
         a_y+=1
         # 딕셔너리에 보석 종류 수만큼 모두 저장했을 경우
         if len(chk_dic)==gems_set_len:
-            while len(chk_list):
-                cur = chk_list[0]
-                if chk_dic[cur]==1:     # 보석이 한개만 남았다면
+            while a_x<a_y:
+                if chk_dic[gems[a_x]]==1:     # 보석이 한개만 남았다면
                     break
-                chk_dic[cur]-=1
-                chk_list.pop(0)
+                chk_dic[gems[a_x]]-=1
                 a_x+=1
             if a_y-a_x<shortest:        # 최단길이 확인
                 shortest = a_y-a_x
